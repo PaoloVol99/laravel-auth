@@ -13,7 +13,7 @@ class StoreProjectRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class StoreProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title'=>'required|max:30|unique:projects,title',
+            'client'=>'required|max:30',
+            'description'=>'required|min:20',
+            'url'=>'nullable|url|max:220'
         ];
     }
 }

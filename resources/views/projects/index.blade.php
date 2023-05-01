@@ -42,6 +42,11 @@
                 <td>
                   <div class="d-flex ">
                     <a class="btn btn-sm btn-secondary" href="{{ route('projects.edit',$project) }}">Edit</a>
+                    <form action="{{ route('projects.destroy', $project) }}" method="POST">
+                      @csrf
+                      @method('DELETE')
+                      <input type="submit" class="btn btn-sm btn-danger" value="Delete">
+                    </form>
                   </div>
                 </td>
               </tr>
